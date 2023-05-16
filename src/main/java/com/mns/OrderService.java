@@ -25,7 +25,7 @@ public class OrderService {
 
     public Optional<Order> findById(String id) {
         return order.stream()
-                .filter(b -> b.getId().equals(id))
+                .filter(b -> b.id().equals(id))
                 .findFirst();
     }
 }

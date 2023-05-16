@@ -46,14 +46,14 @@ class OrderControllerTest {
         Optional<Order> result = retrieveGet("/orders/" + id);
         assertNotNull(result);
         assertTrue(result.isPresent());
-        assertEquals(id, result.get().getId());
+        assertEquals(id, result.get().id());
 
         await().atMost(5, SECONDS).until(() -> !received.isEmpty());
 
         assertEquals(1, received.size());
         Order orderFromKafka = received.iterator().next();
         assertNotNull(orderFromKafka);
-        assertEquals(id, orderFromKafka.getId());
+        assertEquals(id, orderFromKafka.id());
     }
 
     @Test

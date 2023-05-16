@@ -27,7 +27,7 @@ public class AnalyticsFilter implements HttpServerFilter {
                     if (order == null) {
                         return Flux.just(response);
                     }
-                    return Flux.from(analyticsClient.updateAnalytics(order)).map(b -> response);
+                    return Flux.from(analyticsClient.updateAnalytics(order.id(),order,"abcd")).map(b -> response);
                 });
     }
 }
