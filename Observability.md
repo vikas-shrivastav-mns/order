@@ -1,0 +1,1 @@
+https://micronaut-projects.github.io/micronaut-tracing/snapshot/guide/index.html#kafka

@@ -1,0 +1,42 @@
+{
+  "type": "object",
+  "properties": {
+    "order_id": {
+      "type": "string",
+      "doc": "Id of the order filed"
+    },
+    "customer_id": {
+      "type": "string",
+      "doc": "Id of the customer"
+    },
+    "supplier_id": {
+      "type": "string",
+      "doc": "Id of the supplier"
+    },
+    "first_name": {
+      "type": "string",
+      "doc": "First Name of Customer"
+    },
+    "last_name": {
+      "type": "string",
+      "doc": "Last Name of Customer"
+    },
+    "items": {
+      "type": "integer",
+      "doc": "Total number of items in the order"
+    },
+    "price": {
+      "type": "number",
+      "doc": "Total price of the order"
+    },
+    "weight": {
+      "type": "number",
+      "doc": "Weight of the items"
+    },
+    "automated_email": {
+      "type": "boolean",
+      "default": true,
+      "doc": "Field indicating if the user is enrolled in marketing emails"
+    }
+  }
+}

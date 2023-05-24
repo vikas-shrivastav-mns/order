@@ -8,3 +8,43 @@ netty:
 kafka:
   bootstrap:
     servers: localhost:9092
+  producer:
+    key-serializer: org.apache.kafka.common.serialization.StringSerializer
+    value-serializer: org.apache.kafka.common.serialization.StringSerializer
+    retries: 0
+
+otel:
+  instrumentation:
+    kafka:
+      enabled: true
+      captured-headers:
+        - X-Custom-Header
+  traces:
+    exporter: otlp
+    sampler: always_on
+  metrics:
+    exporter: otlp
+  logs:
+    exporter: otlp
+  exporter:
+    otlp:
+      endpoint: http://localhost:4317
+      key: ${NEW_RELIC_LICENSE_KEY:unknown}
+      headers: api-key=${NEW_RELIC_LICENSE_KEY:unknown}
+      compression: gzip
+      instance: ${random.shortuuid}
+    experimental:
+      expoter:
+        otlp:
+          retry:
+            enabled: true
+    metric:
+      export:
+        interval: 5000
+test-resources:
+  containers:
+    kafka:
+      image-name: confluentinc/cp-kafka:5.4.3
+#grpc:
+#  server:
+#    port: 9999

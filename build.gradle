@@ -2,6 +2,7 @@ plugins {
     id("com.github.johnrengelman.shadow") version "7.1.2"
     id("io.micronaut.application") version "3.7.9"
     id("io.micronaut.test-resources") version "3.7.9"
+    id "com.github.davidmc24.gradle.plugin.avro" version "1.7.1"
 }
 
 version = "0.1"
@@ -23,6 +24,15 @@ dependencies {
     compileOnly("org.graalvm.nativeimage:svm")
     runtimeOnly("ch.qos.logback:logback-classic")
     testImplementation("org.awaitility:awaitility:4.2.0")
+    implementation "org.apache.avro:avro:1.11.0"
+    implementation("io.micronaut.tracing:micronaut-tracing-opentelemetry-http")
+    implementation("io.micronaut.tracing:micronaut-tracing-opentelemetry-kafka")
+    implementation("io.micronaut.tracing:micronaut-tracing-opentelemetry-grpc")
+    testImplementation("io.opentelemetry:opentelemetry-sdk-testing")
+    implementation 'io.opentelemetry:opentelemetry-exporter-otlp'
+    testImplementation 'org.testcontainers:kafka:1.18.1'
+
+
 }
 
 application {
